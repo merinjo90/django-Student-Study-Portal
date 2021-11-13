@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from . forms import *
 from django.contrib import messages
 
@@ -9,7 +9,7 @@ from django.contrib import messages
 def home(request):
     return render(request,'dashboard/home.html')
 
-#Student Notes
+#Student Notes creation
 def notes(request):
     if request.method== "POST":
         form=NotesForm(request.POST)
@@ -22,3 +22,9 @@ def notes(request):
     notes=Notes.objects.filter(user=request.user)
     context={'notes':notes,'form':form}
     return render(request,'dashboard/notes.html',context)
+
+#Student Notes Deletion
+
+def delete_note(request,pk=None):
+    Notes.objects.get(id=pk).delete()
+    return redirect("notes")
