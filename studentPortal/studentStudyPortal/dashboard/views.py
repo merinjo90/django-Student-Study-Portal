@@ -34,9 +34,31 @@ def delete_note(request,pk=None):
 class NotesDetailView(generic.DetailView):
     model=Notes
 
-#Student HomeWorks
+#Student HomeWorks Creation
 def homework(request):
-    form=HomeworkForm()
+    if request.method == "POST":
+        form = HomeworkForm(request.POST)
+        if form.is_valid():
+            try:
+                finished = request.POST['is_finished']
+                if finished == 'on':
+                    finished = True
+                else:
+                    finished = False
+            except:
+                finished = False
+            homeworks=Homework(
+                user=request.user,
+                subject=request.POST['subject'],
+                title = request.POST['title'],
+                description = request.POST['description'],
+                due = request.POST['due'],
+                is_finished = finished
+            )
+            homeworks.save()
+            messages.success(request,f'Homework Added from {request.user.username}!!')
+    else:
+        form=HomeworkForm()
     homework=Homework.objects.filter(user=request.user)
     if len(homework)==0:
         homework_done=True
