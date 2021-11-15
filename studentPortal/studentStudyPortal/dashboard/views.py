@@ -33,3 +33,7 @@ def delete_note(request,pk=None):
 
 class NotesDetailView(generic.DetailView):
     model=Notes
+
+#Student HomeWorks
+def homework(request):
+    return render(request,'dashboard/homework.html')
