@@ -71,3 +71,13 @@ def homework(request):
              }
     return render(request,'dashboard/homework.html',context)
 
+#Homework Updation
+def update_homework(request,pk=None):
+    homework=Homework.objects.get(id=pk)
+    if homework.is_finished==True:
+        homework.is_finished = False
+    else:
+        homework.is_finished = True
+    homework.save()
+    return redirect('homework')
+
