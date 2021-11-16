@@ -120,3 +120,7 @@ def youtube(request):
         form=DashboardForm()
     context={'form':form}
     return render(request,'dashboard/youtube.html',context)
+
+#to-do section
+def todo(request):
+    return render(request,'dashboard/todo.html')
