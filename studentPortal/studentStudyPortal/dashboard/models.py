@@ -25,3 +25,16 @@ class Homework(models.Model):
     def __str__(self):
         return self.title
 
+
+#To-do
+class Todo(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    title=models.CharField(max_length=100)
+    is_finished =models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name="Todo"
+        verbose_name_plural="Todo"
