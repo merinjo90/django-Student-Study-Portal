@@ -165,3 +165,8 @@ def update_todo(request,pk=None):
         todo.is_finished=True
     todo.save()
     return redirect('todo')
+
+#To-do delete
+def delete_todo(request,pk=None):
+    Todo.objects.get(id=pk).delete()
+    return redirect("todo")
