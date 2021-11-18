@@ -240,4 +240,8 @@ def dictionary(request):
 
 #Wikkipedia section
 def wiki(request):
-    return render(request,'dashboard/wiki.html')
+    form=DashboardForm()
+    context={
+        'form':form
+    }
+    return render(request,'dashboard/wiki.html',context)
