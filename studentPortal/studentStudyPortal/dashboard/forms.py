@@ -16,7 +16,7 @@ class HomeworkForm(forms.ModelForm):
         widgets={'due':DateInput()}
         fields=['subject','title','description','due','is_finished']
 
-#commn form- wikkipedia,dictionary,youtube search form
+#commn form- wikkipedia,dictionary,youtube,book search form
 class DashboardForm(forms.Form):
     text=forms.CharField(max_length=100,label="Enter your search :")
 
