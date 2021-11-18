@@ -237,3 +237,7 @@ def dictionary(request):
         form=DashboardForm()
         context={'form':form}
     return render(request,'dashboard/dictionary.html',context)
+
+#Wikkipedia section
+def wiki(request):
+    return render(request,'dashboard/wiki.html')
