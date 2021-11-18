@@ -203,3 +203,8 @@ def books(request):
         form=DashboardForm()
     context={'form':form}
     return render(request,'dashboard/books.html',context)
+
+#dictionary section
+
+def dictionary(request):
+    return render(request,'dashboard/dictionary.html')
