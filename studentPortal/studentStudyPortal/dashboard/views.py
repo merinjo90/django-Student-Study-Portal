@@ -333,3 +333,7 @@ def register(request):
         'form': form
     }
     return render(request,'dashboard/register.html',context)
+
+#Profile Page
+def profile(request):
+    return render(request,'dashboard/profile.html')
