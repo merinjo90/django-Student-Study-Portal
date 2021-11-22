@@ -19,3 +19,9 @@ class HomeworkForm(forms.ModelForm):
 #commn form- wikkipedia,dictionary,youtube search form
 class DashboardForm(forms.Form):
     text=forms.CharField(max_length=100,label="Enter your search :")
+
+#to-do form
+class TodoForm(forms.ModelForm):
+    class Meta:
+        model=Todo
+        fields=['title','is_finished']
